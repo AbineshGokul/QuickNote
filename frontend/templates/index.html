@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickNote - Your Personal Notes</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">✎</span>
+            <h2>QuickNote</h2>
+        </div>
+
+        <p class="sidebar-label">WORKSPACE</p>
+
+        <nav>
+            <a href="#" class="nav-item active">▤ All Notes</a>
+            <a href="#editor" class="nav-item">＋ New Note</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <p>Simple thoughts.<br>Beautifully organized.</p>
+        </div>
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <header class="top-header">
+            <div>
+                <p class="welcome-text">YOUR PERSONAL WORKSPACE</p>
+                <h1>My Notes</h1>
+                <p class="subtitle">Capture your thoughts and ideas.</p>
+            </div>
+
+            <div class="profile">QN</div>
+        </header>
+
+
+        <!-- Note Editor -->
+        <section class="editor-card" id="editor">
+
+            <div class="editor-heading">
+                <div>
+                    <span class="small-label">CREATE SOMETHING</span>
+                    <h2>Write a new note</h2>
+                </div>
+                <span class="edit-icon">✎</span>
+            </div>
+
+            <form id="noteForm">
+
+                <input
+                    type="text"
+                    id="noteTitle"
+                    placeholder="Give your note a title..."
+                    maxlength="100"
+                    required
+                >
+
+                <textarea
+                    id="noteContent"
+                    placeholder="Start writing your thoughts here..."
+                    rows="5"
+                    required
+                ></textarea>
+
+                <div class="editor-footer">
+
+                    <span id="charCount">0 characters</span>
+
+                    <div class="editor-actions">
+                        <button
+                            type="button"
+                            id="cancelEditBtn"
+                            class="cancel-btn"
+                            hidden
+                        >
+                            Cancel
+                        </button>
+
+                        <button type="submit" id="saveBtn">
+                            + Save Note
+                        </button>
+                    </div>
+
+                </div>
+
+            </form>
+        </section>
+
+
+        <!-- Notes Section -->
+        <section class="notes-section">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Recent Notes</h2>
+                    <p>Your saved thoughts in one place.</p>
+                </div>
+
+                <span id="noteCount" class="note-count">0 Notes</span>
+            </div>
+
+
+            <!-- Search -->
+            <div class="search-container">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search your notes..."
+                >
+            </div>
+
+
+            <!-- Notes Display -->
+            <div id="notesContainer" class="notes-grid"></div>
+
+
+            <!-- Empty State -->
+            <div id="emptyState" class="empty-state">
+                <div class="empty-icon">📝</div>
+                <h3>No notes yet</h3>
+                <p>Start writing your first note above!</p>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
